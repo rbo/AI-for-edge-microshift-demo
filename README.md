@@ -354,17 +354,17 @@ This web will show you the feeds of the camera and you will be able to see how f
 
 ## Configuration options
 
-|Environment variable|Description|Default|RHTE 2023 Settings
-|---|---|---|---|
-|`MODEL_FILENAME`|Model to load during startup.|`model.data`|via init container|
-|`VIDEO_DEVICE_ID`|Video device to open:<br/>`cv2.VideoCapture(int(os.environ.get('VIDEO_DEVICE_ID', 0)),cv2.CAP_V4L2)`|`0`|`0`|
-|`CAP_PROP_FRAME_WIDTH`|`cap.set(cv2.CAP_PROP_FRAME_WIDTH()`|`1280`|`800`|
-|`CAP_PROP_FRAME_HEIGHT`|`cap.set(cv2.CAP_PROP_FRAME_HEIGHT()`|`720`|`800`|
-|`FACE_RATIO`|Scale down the image to XX<br/>`small_frame = cv2.resize(frame, (0, 0), fx=FACE_RATIO, fy=FACE_RATIO)`|`0.25`|`1`
-|`FACE_LOC_MODEL`|model – Which face detection model to use: <br/><li>`hog` is less accurate but faster on CPUs.</li><li>`cnn` is a more accurate deep-learning model which is GPU/CUDA accelerated (if available).</li>Python function [face_locations](https://face-recognition.readthedocs.io/en/latest/face_recognition.html#face_recognition.api.face_landmarks)|`hog`|`hog`
-|`FACE_LOC_NTU`|**N**umber_f_**T**imes_to_**U**psample – How many times to upsample the image looking for faces. Higher numbers find smaller faces.<br/>Python function [face_locations](https://face-recognition.readthedocs.io/en/latest/face_recognition.html#face_recognition.api.face_landmarks)|`1`|`2`|
-|`VIDEO_PROCESSING_FPS`|Set amount of FPS they have to capture and process.|`1`|`30`*|
-|`WEB_LOGLEVEL`|Loglevel for the webapp: `CRITICAL`, `ERROR`, `WARNING`,`INFO` or `DEBUG`|`INFO`|`INFO`|
+|Environment variable|Description|Default|RHTE 2023 Settings|Lunch&Learn Munich
+|---|---|---|---|---|
+|`MODEL_FILENAME`|Model to load during startup.|`model.data`|via init container|Default|
+|`VIDEO_DEVICE_ID`|Video device to open:<br/>`cv2.VideoCapture(int(os.environ.get('VIDEO_DEVICE_ID', 0)),cv2.CAP_V4L2)`|`0`|`0`|`0`|
+|`CAP_PROP_FRAME_WIDTH`|`cap.set(cv2.CAP_PROP_FRAME_WIDTH()`|`1280`|`800`|`800`|
+|`CAP_PROP_FRAME_HEIGHT`|`cap.set(cv2.CAP_PROP_FRAME_HEIGHT()`|`720`|`600`|`600`|
+|`FACE_RATIO`|Scale down the image to XX<br/>`small_frame = cv2.resize(frame, (0, 0), fx=FACE_RATIO, fy=FACE_RATIO)`|`0.25`|`1`|`1`
+|`FACE_LOC_MODEL`|model – Which face detection model to use: <br/><li>`hog` is less accurate but faster on CPUs.</li><li>`cnn` is a more accurate deep-learning model which is GPU/CUDA accelerated (if available).</li>Python function [face_locations](https://face-recognition.readthedocs.io/en/latest/face_recognition.html#face_recognition.api.face_landmarks)|`hog`|`cnn`|`cnn`|
+|`FACE_LOC_NTU`|**N**umber_f_**T**imes_to_**U**psample – How many times to upsample the image looking for faces. Higher numbers find smaller faces.<br/>Python function [face_locations](https://face-recognition.readthedocs.io/en/latest/face_recognition.html#face_recognition.api.face_landmarks)|`1`|`2`|`2`|
+|`VIDEO_PROCESSING_FPS`|Set amount of FPS they have to capture and process.|`1`|`30`*|`1`|
+|`WEB_LOGLEVEL`|Loglevel for the webapp: `CRITICAL`, `ERROR`, `WARNING`,`INFO` or `DEBUG`|`INFO`|`INFO`|`INFO`|
 *) Because the setting was not available at RHTE 2023
 
 # WebApp development at the jetson

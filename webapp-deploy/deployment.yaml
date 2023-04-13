@@ -34,14 +34,14 @@ spec:
       serviceAccountName: privileged
       initContainers:
       - image: default-registry.cluster.local/ai-for-edge/model:2302011505
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: model
         volumeMounts:
         - name: model
           mountPath: /dst/
       containers:
         - image: default-registry.cluster.local/ai-for-edge/webapp:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           name: webapp
           ports:
             - containerPort: 5000
@@ -63,6 +63,14 @@ spec:
             value: "2"
           - name: "FACE_RATIO"
             value: "1"
+          - name:  WEB_LOGLEVEL
+            value: "INFO"
+          - name: VIDEO_PROCESSING_FPS
+            value: "1"
+          - name: CAP_PROP_FRAME_WIDTH
+            value: "800"
+          - name: CAP_PROP_FRAME_HEIGHT
+            value: "600"
           securityContext:
             privileged: true
       volumes:
