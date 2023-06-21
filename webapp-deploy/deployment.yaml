@@ -33,7 +33,7 @@ spec:
     spec:
       serviceAccountName: privileged
       initContainers:
-      - image: default-registry.cluster.local/ai-for-edge/model:2306210907
+      - image: default-registry.cluster.local/ai-for-edge/model:2306211319
         imagePullPolicy: Always
         name: model
         volumeMounts:
