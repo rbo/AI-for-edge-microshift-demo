@@ -40,8 +40,6 @@ spec:
       value: "true"
     - name: verbose
       value: "true"
-    - name: gitInitImage
-      value: registry.redhat.io/openshift-pipelines/pipelines-git-init-rhel8@sha256:55b0686bbd045c9c77820686318f8a5ff2aff06de566b067f408d27a93bf153c
     taskRef:
       kind: ClusterTask
       name: git-clone
