@@ -27,7 +27,7 @@ This demo repository is structured into different folders/compontents:
 
 http://webapp-ai-for-edge.cluster.local/
 
-=> Nothing recognitced
+=> Nothing recognized
 
 ### 2) Run model (re)training
 
@@ -128,15 +128,19 @@ oc apply -k openshift-local/
 
 Added cluster to argocd instance
 
+Make sure to copy the kubeconfig file (/var/lib/microshift/resources/kubeadmin/kubeconfig) from microshift to your local machine
+
 ```bash
 # Login into MicroShift at Nvidia Jetson
 oc login -u kubeadmin https://192.168.5.5:6443/
 
-# Login into OpenShift GitOps at OpenShift Local instance
+# Login into OpenShift GitOps at OpenShift Local instance (e.g openshift-gitops-server-openshift-gitops.apps-crc.testing)
 argocd login ...
 
 # Add cluster to argocd instance
 argocd cluster add $(oc config current-context )
+
+# Alternatively you can use a kubeconfig file to add the microshift cluster to ArgoCD : argocd cluster add ai-for-edge/127-0-0-1:6443/system:masters --kubeconfig=$HOME/.kube/config-microshift
 ```
 
 Example outpur of `argocd cluster list`:
@@ -176,7 +180,7 @@ oc create secret generic aws-credentials --from-file=credentials=credentials
 ```
 
 
-### Running local proxy for the jetson
+### Running local proxy for the jetson (Only required for the Jetson to have internet access)
 
 **Build**
 ```bash
@@ -347,13 +351,19 @@ Press CTRL+C to quit
 10.85.0.1 - - [30/Dec/2022 12:24:33] "GET /favicon.ico HTTP/1.1" 404 -
 ```
 
+Add this entry to your local /etc/hosts file
+
+```
+192.168.5.5 jetson webapp-ai-for-edge.cluster.local webui-registry.cluster.local
+```
+
 Finally, open a browser with the following URL:
 
 ```
 http://webapp-ai-for-edge.cluster.local
 ```
 
-This web will show you the feeds of the camera and you will be able to see how faces are detected.
+You may have to wait a bit and reload once for the stream to appear.  This web will show you the feeds of the camera and you will be able to see how faces are detected.
 
 ![Screenshot](screenshot.png)
 
