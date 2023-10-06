@@ -11,5 +11,5 @@ spec:
   source:
     path: webapp-deploy
     repoURL: https://github.com/rbo/AI-for-edge-microshift-demo
-    targetRevision: main
+    targetRevision: summit
   syncPolicy: {}
