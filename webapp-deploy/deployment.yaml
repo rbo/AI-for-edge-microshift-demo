@@ -4,7 +4,7 @@ metadata:
   annotations:
     alpha.image.policy.openshift.io/resolve-names: '*'
     app.openshift.io/route-disabled: "false"
-    app.openshift.io/vcs-ref: ""
+    app.openshift.io/vcs-ref: "summit"
     app.openshift.io/vcs-uri: https://github.com/rbo/AI-for-edge-microshift-demo
     # image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"server:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"webapp\")].image","pause":"false"}]'
   labels:
